@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.svg">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="js/login.js"></script>
+    <title>Planon - Log in or Sign up</title>
+</head>
+
+<body>
+    <div>
+        <div class="header-form">
+            <img src="images/planon-logo.svg" class="planon-logo" alt="Company Logo">
+            <div class="headerBtn">
+                <button type="button" class="btn" id="LoginButton" onclick="show('Sign_up', 'Log_in')"><i class='fa fa-unlock-alt'></i> Log in</button>
+                <button type="button" class="btn" id="SignUpButton" onclick="show('Log_in', 'Sign_up')"><i class='fa fa-user-plus'></i> Sign up</button>
+            </div>
+        </div>
+        <div class="header-image">
+            <img src="images/employee-portal.png" class="login-image">
+        </div>
+
+        <!-- Log in  -->
+        <div id="Log_in">
+            <div class="Form">
+                <form name="employee_Form">
+                    <div class="body-form">
+                        <div class="row">
+                            <label class="label-title"><i class="fa fa-user-circle"></i> Username or email address <span class="label-required">*</span></label>
+                            <input type="text" class="input-form" id="username" onblur="validateUserName()">
+                            <div class="validate-type" id="check_username"></div>
+                        </div>
+                        <div class="row">
+                            <label class="label-title"><i class="fa fa-key"></i> Password <span class="label-required">*</span></label>
+                            <input type="password" class="input-form" id="password" onblur="validatePassword()">
+                            <div class="validate-type" id="check_password"></div>
+                        </div>
+                        <div class="login-button">
+                            <button type="button" class="button" id="loginBtn" onclick="employeeLogin()">Log in <i class="fa fa-sign-in"></i></button>
+                        </div>
+                        <div class="register">
+                            <div class="label-title">Don't have an account? <a href="javascript:show('Log_in', 'Sign_up')" class="label-title">Sign up</a></div>
+                        </div>
+                    </div>
+                </form> 
+            </div> 
+        </div>
+        
+        <!-- Sign up -->
+        <div id="Sign_up" style="display: none;">
+            <div class="Form">
+                <form name="employee_Form">
+                    <div class="body-form">
+                        <div class="row">
+                            <label class="label-title"><i class="fa fa-envelope"></i> E-mail <span class="label-required">*</span></label>
+                            <input type="text" class="input-form" id="signUp_email" onblur="validate_signUp_Email()">
+                            <div class="validate-type" id="check_signUp_email"></div>
+                        </div>
+                        <div class="row">
+                            <label class="label-title"><i class="fa fa-user-circle"></i> Username <span class="label-required">*</span></label>
+                            <input type="text" class="input-form" id="signUp_username" onblur="validate_signUp_Username()">
+                            <div class="validate-type" id="check_signUp_username"></div>
+                        </div>
+                        <div class="row">
+                            <label class="label-title"><i class="fa fa-key"></i> Password <span class="label-required">*</span></label>
+                            <input type="password" class="input-form" id="signUp_password" onblur="validate_signUp_Password()">
+                            <div class="validate-type" id="check_signUp_password"></div>
+                        </div>
+                        <div class="row">
+                            <label class="label-title"><i class="fa fa-key"></i> Confirm Password <span class="label-required">*</span></label>
+                            <input type="password" class="input-form" id="signUp_confirmPassword" onblur="validate_signUp_ConfirmPassword()">
+                            <div class="validate-type" id="check_signUp_confirmPassword"></div>
+                        </div>
+                        <div class="login-button">
+                            <button type="button" class="button" id="SignUpBtn" onclick="employeeSignUp()">Sign up <i class='fa fa-share-square'></i></button>
+                        </div>
+                        <div class="register">
+                            <div id="message" class="label-title"></div>
+                            <div class="label-title">Already have an account? <a href="javascript:show('Sign_up', 'Log_in')" class="label-title">Log in</a></div>
+                        </div>
+                    </div>
+                </form> 
+            </div>
+        </div>    
+    </div>
+</body>
+
+</html>

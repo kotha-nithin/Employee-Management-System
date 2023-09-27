@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planon | Employee Form</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/main.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    
+</head>
+
+<body>
+    <section id="Header">
+        <div class="header-form">
+            <img src="images/planon-logo1.jpg" class="planon-logo" alt="Company Logo">
+            <div class="headerBtn">
+                <button type="button" class="btn" id="LogoutButton" onclick="Logout()"><i class="fa fa-power-off"></i> Log out</button>
+            </div>
+        </div>
+    </section>
+    <section id="Form">
+        <form name="employee_Information_Form" class="employee_Form">
+            <div class="header-form">
+                <div class="header">
+                    <!-- <img src="images/planon-logo.svg" class="planon-logo" alt="Company Logo"> -->
+                    <h1 class="line-1 anim-typewriter">EMPLOYEE INFORMATION FORM</h1>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="body-form">
+
+                    <!-- Employee ID -->
+                    <div class="horizontal-group">
+                        <label class="label-title">Employee Id</label>
+                        <label class="label-required">*</label>
+                        <input type="text" class="input-form" id="employee_Id" placeholder="Employee Id" onblur="validateId()">
+                        <div class="validate-type" id="check_employee_Id"></div>
+                    </div>
+
+                    <!-- First Name & Last Name -->
+                    <div class="horizontal-group">
+                        <div class="form-group left">
+                            <label class="label-title">First Name</label>
+                            <label class="label-required">*</label>
+                            <input type="text" class="input-form" id="first_Name" placeholder="First Name" onblur="validateName()">
+                            <div class="validate-type" id="check_first_Name"></div>
+                        </div>
+                        <div class="form-group right">
+                            <label class="label-title">Last Name</label>
+                            <input type="text" class="input-form" id="last_Name" placeholder="Last Name">
+                            <div class="validate-type" id="check_last_Name"></div>
+                        </div>
+                    </div>
+
+                    <!-- Email Address & Mobile Number-->
+                    <div class="horizontal-group">
+                        <div class="form-group left">
+                            <label class="label-title">Email Address</label>
+                            <label class="label-required">*</label>
+                            <input type="text" class="input-form" id="email_Id" placeholder="name@planonsoftware.com"  onblur="validateEmail()">
+                            <div class="validate-type" id="check_email_Id"></div>
+                        </div>
+                        <div class="form-group right">
+                            <label class="label-title">Mobile Number</label>
+                            <label class="label-required">*</label>
+                            <input type="tel" class="input-form" id="mobile_Num" placeholder="Contact Number"  onblur="validateMobileNum()">
+                            <div class="validate-type" id="check_mobile_Num"></div>
+                        </div>
+                    </div>
+
+                    <!-- Gender & Hobbies-->
+                    <div class="horizontal-group">
+                        <div class="form-group left">
+                            <label class="label-title">Gender</label>
+                            <label class="label-required">*</label><br>
+                            <label class="label-input" style="font-size: 18px;">
+                                <input type="radio" name="gender" value="Male" onblur="validateGender()" /> Male 
+                                <input type="radio" name="gender" value="Female" onblur="validateGender() " /> Female
+                            </label>
+                            <div class="validate-type" id="check_gender"></div>
+                        </div>
+                        <div class="form-group right">
+                            <label class="label-title">Hobbies</label>
+                            <label class="label-required">*</label><br>
+                            <label class="label-input" style="font-size: 18px;">
+                                <input type="checkbox" name="Hobbies" value="Music" onblur="validateHobbies()"/> Music 
+                                <input type="checkbox" name="Hobbies" value="Sports" onblur="validateHobbies()"/> Sports 
+                                <input type="checkbox" name="Hobbies" value="Travel" onblur="validateHobbies()"/> Travel
+                            </label> 
+                            <div class="validate-type" id="check_hobbies"></div>
+                        </div>
+                    </div>
+
+                    <!-- Date of Joining & Team Name -->
+                    <div class="horizontal-group">
+                        <div class="form-group left">
+                            <label class="label-title">Date of Joining</label>
+                            <label class="label-required">*</label>
+                            <input type="date" class="input-form" id="doj" onblur="validateDOJ()">
+                            <div class="validate-type" id="check_doj"></div>
+                        </div>
+                        <div class="form-group right">
+                            <label class="label-title">Team Name</label>
+                            <label class="label-required">*</label>
+                            <select id="employee_Team" class="input-form" onblur="validateTeamName()">
+                                <option value="default" disabled selected>Select Team Name</option>
+                                <option value="ConjectFM">ConjectFM</option>
+                                <option value="Planon Universe">Planon Universe</option>
+                                <option value="PSEC">PSEC</option>
+                                <option value="SamFM">SamFM</option>
+                                <option value="TMS">TMS</option>
+                            </select>
+                            <div class="validate-type" id="check_employee_Team"></div>
+                        </div>
+                    </div>
+
+                    <div class="address-header">
+                        <h4 id="add-address" onclick="addAddress()"><i class="fa fa-address-card-o"></i> Address Information</h4>
+                        <!-- <i class='fa fa-plus-circle'></i> -->
+                    </div>
+
+                    <div id="address">
+                        <!-- Address Line 1 -->
+                        <div class="horizontal-group">
+                            <label class="label-title">Address Line 1</label>
+                            <label class="label-required">*</label>
+                            <input type="text" id="address1" class="input-form" placeholder="Flat/House No, Floor, Building" onblur="validateAddress1()">
+                            <div class="validate-type" id="check_address1"></div>
+                        </div>
+
+                        <!-- Address Line 2 -->
+                        <div class="horizontal-group">
+                            <label class="label-title">Address Line 2</label>
+                            <label class="label-required">*</label>
+                            <input type="text" id="address2" class="input-form" placeholder="Colony/Society, Street, Locality/Area" onblur="validateAddress2()">
+                            <div class="validate-type" id="check_address2"></div>
+                        </div>
+
+                        <!-- City -->
+                        <div class="horizontal-group">
+                            <label class="label-title">City</label>
+                            <label class="label-required">*</label>
+                            <input type="text" id="city" class="input-form" placeholder="City/Town" onblur="validateCity()">
+                            <div class="validate-type" id="check_city"></div>
+                        </div>
+
+                        <!-- State & Pin Code -->
+                        <div class="horizontal-group">
+                            <div class="form-group left">
+                                <label class="label-title">State</label>
+                                <label class="label-required">*</label>
+                                <select id="state" class="input-form" onblur="validateState()">
+                                    <option value="default" disabled selected>Select a State</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                </select>
+                                <div class="validate-type" id="check_state"></div>
+                            </div>
+                            <div class="form-group right">
+                                <label class="label-title">Pin Code</label>
+                                <label class="label-required">*</label>
+                                <input type="text" id="pincode" class="input-form" placeholder="Zip or Postal Code" onblur="validatePinCode()">
+                                <div class="validate-type" id="check_pincode"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-form">
+                    <button id="cancelBtn" class="button" type="reset"><i class='fa fa-undo'></i> RESET ALL</button>
+                    <button id="submitBtn" class="button" type="button" onclick="validate()"><i class='fa fa-check-square-o'></i> SUBMIT FORM</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section id="Details">
+        <div>
+            <h3>Employee Details</h3>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Full Name</th>
+                        <th>Email Address</th>
+                        <th>Mobile Number</th>
+                        <th>Gender</th>
+                        <th>Hobbies</th>
+                        <th>Date of Joining</th>
+                        <th>Team Name</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody id="display-employee-content">
+                    <!-- Display the details of Employee using AGAX -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>

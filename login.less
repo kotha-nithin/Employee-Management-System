@@ -1,0 +1,152 @@
+//Variables
+@primary: darkblue;
+@secondary: #69F10A;
+@teritary: #F12A0A;
+@quaternary: #fff;
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+}
+
+//Mixins
+.form(@width) {
+    width: @width;
+    margin: auto;
+    font-family: "Times New Roman";
+    background-color: @quaternary;
+}
+
+.button() {
+    font-size: 15px;
+    padding: 8px 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.header-form { 
+    position: sticky;
+    display: block;
+    margin: 10px;
+
+    .planon-logo {
+        height: 8vh;
+    }
+
+    .headerBtn {
+        float: right;
+        margin: 1%;
+
+        .btn {
+            .button();
+            border-style: none;
+            color: @quaternary;
+            background-color: @primary;
+
+            &:hover {
+                background-color: black;
+            }
+        }
+    }
+}
+
+.header-image {
+    .login-image {
+        display: block;
+        left: 0;
+        width: 100%;
+    }
+}
+
+.Form { 
+    .form(30%);
+    margin: 20px auto;
+    padding: 10px 10px;
+    border: 3px solid @primary;
+    box-shadow: -5px -5px 0 @primary; 
+
+
+
+    .input-form { 
+        border: 2px solid @secondary;
+        caret-color: @primary;
+        box-sizing: border-box;
+        width: 100%;
+        height: 34px;
+        padding: 7px;
+        text-align: left;
+        font-size: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+
+        &:focus {
+            outline: none;
+            border: 2px solid @primary;
+        }
+    }
+
+    .body-form { 
+        .label-title {
+            color: @primary;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: sans-serif;
+        }
+
+        .label-required {
+            color: @teritary;
+        }
+
+        .validate-type {
+            color: @teritary;
+            font-family: sans-serif;
+            font-size: 14px;
+            padding-bottom: 5px;
+        }
+
+        .login-button {
+            text-align: center;
+
+            .button {
+                .button();
+                width: 25%;
+                border: 2px solid #3a86ff;
+                color: @primary;
+                border-style: inset;
+                border-width: medium;
+                border-radius: 15px;
+                background-color: @quaternary;
+
+                &:hover {
+                    color: @quaternary;
+                    font-weight: bold;
+                    background: @quaternary radial-gradient(circle, transparent 1%, @quaternary 1%) center/15000%;
+                }
+
+                &:active {
+                    background-size: 100%;
+                    transition: 0s;
+                }
+            }
+
+            #loginBtn {
+                &:hover {
+                    background-color: #a435f0;
+                }
+            }
+
+            #SignUpBtn {
+                &:hover {
+                    background-color: #1877f2;
+                }
+            }
+        }
+
+        .register {
+            text-align: center;
+            margin: 5px;
+        }
+    }
+}
